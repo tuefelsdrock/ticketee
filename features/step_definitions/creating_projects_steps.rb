@@ -1,5 +1,5 @@
 Given /^I am on the homepage$/ do
-  pending # express the regexp above with the code you wish you had
+  visit ('/')
 end
 
 When /^I follow "([^"]*)"$/ do |arg1|
