@@ -9,4 +9,11 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
-end
+
+  def create
+    @project = Project.new(params[:project])
+    @project.save
+    flash[:notice] = "Project has been created."
+    redirect_to @project
+  end
+
