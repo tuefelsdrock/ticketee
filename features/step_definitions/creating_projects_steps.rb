@@ -1,9 +1,9 @@
 Given /^I am on the homepage$/ do
-  visit ('/')
+  visit('/')
 end
 
 When /^I follow "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  click_link('New Project')
 end
 
 When /^I fill in "([^"]*)" with "([^"]*)"$/ do |arg1, arg2|
