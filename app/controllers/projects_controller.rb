@@ -17,3 +17,4 @@ class ProjectsController < ApplicationController
     redirect_to @project
   end
 
+end
