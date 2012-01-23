@@ -1,4 +1,4 @@
-Given /^there is a project called "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given /^there is a project called "([^"]*)"$/ do |name|
+  Factory(:project, :name => name)
 end
 
