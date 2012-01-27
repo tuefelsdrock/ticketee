@@ -1,22 +1,41 @@
 class TicketsController < ApplicationController
 
   before_filter :find_project
+  before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
+
 
 
   def new
-
     # The build method simply instantiates a new record for the tickets association on the
     # @project object.
 
     @ticket = @project.tickets.build
-
   end
 
+  def create
+    @ticket = @project.tickets.build(params[:ticket])
+    if @ticket.save
+      flash[:notice] = "Ticket has been created."
+      redirect_to [@project, @ticket]
+    else
+      flash[:alert] = "Ticket has not been created."
+      render :action => "new"
+    end
+  end
+
+  def show
+  end
 
 
   private
+
     def find_project
       @project = Project.find(params[:project_id])
-  end
+    end
+
+    def find_ticket
+      @ticket = @project.tickets.find(params[:id])
+    end
+
 
 end
