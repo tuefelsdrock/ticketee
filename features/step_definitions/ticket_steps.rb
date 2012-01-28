@@ -6,7 +6,8 @@ Given /^that project has a ticket:$/ do |table|
 end
 
 Then /^I should see "([^"]*)" within "([^"]*)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+  #page.should have_content(arg1)
+  find(arg2).should have_content(arg1)
 end
 
 
