@@ -14,6 +14,7 @@ When /^I press "([^"]*)"$/ do |arg1|
   click_button(arg1)
 end
 
+# note: "([^"*)" will gag if the string contains a single quote
 Then /^I should see "([^"]*)"$/ do |arg1|
   page.should have_content(arg1)
   #find('#notice').should have_content(arg1)
@@ -28,7 +29,6 @@ Then /^I should not see "([^"]*)"$/ do |arg1|
 end
 
 Given /^there is a project called "([^"]*)"$/ do |name|
-  #Factory(:project, :name => name)
   @project = Factory(:project, :name => name)
 end
 
