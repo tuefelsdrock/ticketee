@@ -23,3 +23,12 @@ Then /^I should be on the project page for "([^"]*)"$/ do |arg1|
   visit( project_path(Project.find_by_name!(arg1)) )
 end
 
+Then /^I should not see "([^"]*)"$/ do |arg1|
+  page.should_not have_content(arg1)
+end
+
+Given /^there is a project called "([^"]*)"$/ do |name|
+  #Factory(:project, :name => name)
+  @project = Factory(:project, :name => name)
+end
+
