@@ -1,5 +1,7 @@
 Ticketee::Application.routes.draw do
 
+  devise_for :users
+
   # This code tells the routing for Rails that you have a tickets resource nested inside the
   # projects resource. Effectively, any time you access a ticket resource, you access it within
   # the scope of a project too. Just as the resources :projects method gave you helpers to
