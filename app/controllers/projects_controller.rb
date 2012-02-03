@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
 
+  before_filter :authorize_admin!, :except => [:index, :show]
+
+
   # call the find_project method to initialize for these actions...
   before_filter :find_project, :only => [:show, :edit, :update, :destroy]
 
