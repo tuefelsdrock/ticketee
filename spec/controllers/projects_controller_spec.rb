@@ -2,11 +2,7 @@ require 'spec_helper'
 
 describe ProjectsController do
 
-  let(:user) do
-    user = Factory(:user)
-    user.confirm!
-    user
-  end
+  let(:user) { create_user! }
 
   #you use a project variable below.
   #The attributes of this project object are unimportant: you only need a valid object,

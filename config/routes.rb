@@ -1,5 +1,6 @@
 Ticketee::Application.routes.draw do
 
+
   devise_for :users
 
   # This code tells the routing for Rails that you have a tickets resource nested inside the
@@ -12,5 +13,9 @@ Ticketee::Application.routes.draw do
   end
 
   root :to => 'projects#index'
+
+  namespace :admin do
+    resources :users
+  end
 
 end
