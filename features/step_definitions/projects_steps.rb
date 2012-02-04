@@ -32,3 +32,7 @@ Given /^there is a project called "([^"]*)"$/ do |name|
   @project = Factory(:project, :name => name)
 end
 
+When /^I check "([^"]*)"$/ do |arg1|
+  check(arg1)
+end
+
