@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
 
   before_filter :authorize_admin!, :except => [:index, :show]
-  before_filter :authenticate_user!, :only => [:show]
+  before_filter :authenticate_user!, :only => [:index, :show]
+
 
 
   # call the find_project method to initialize for these actions...
@@ -9,7 +10,7 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = Project.all
+    @projects = Project.for(current_user).all
   end
 
 
@@ -60,12 +61,10 @@ class ProjectsController < ApplicationController
 
   private
     def find_project
+
       #check the permissions of the project before letting authorized users see it 
-      @project = if current_user.admin?
-        Project.find(params[:id])
-      else
-        Project.readable_by(current_user).find(params[:id])
-      end
+      @project = Project.for(current_user).find(params[:id])
+
 
 
       rescue ActiveRecord::RecordNotFound
