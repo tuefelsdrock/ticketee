@@ -61,7 +61,12 @@ class ProjectsController < ApplicationController
   private
     def find_project
       #check the permissions of the project before letting authorized users see it 
-      @project = Project.readable_by(current_user).find(params[:id])
+      @project = if current_user.admin?
+        Project.find(params[:id])
+      else
+        Project.readable_by(current_user).find(params[:id])
+      end
+
 
       rescue ActiveRecord::RecordNotFound
       flash[:alert] = "The project you were looking" +
