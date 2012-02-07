@@ -1,7 +1,11 @@
 Ticketee::Application.routes.draw do
 
 
-  devise_for :users
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  get '/awaiting_confirmation', :to => "users#confirmation", :as => 'confirm_user'
+
+
 
   # This code tells the routing for Rails that you have a tickets resource nested inside the
   # projects resource. Effectively, any time you access a ticket resource, you access it within
