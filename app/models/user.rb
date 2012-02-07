@@ -18,4 +18,7 @@ class User < ActiveRecord::Base
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
 
+  has_many :permissions
+
+
 end
