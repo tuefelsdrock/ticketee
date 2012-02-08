@@ -5,7 +5,7 @@ class Ability
   # Here you iterate over all the users’ permissions and use the can? method to
   # say that a user can perform a specific function. Users who shouldn’t be able to per-
   # form that function won’t have an entry in the permissions table for it. 
-  # 
+  #  pg 189/214
   def initialize(user)
     user.permissions.each do |permission|
       can permission.action.to_sym, permission.thing_type.constantize do |thing|
