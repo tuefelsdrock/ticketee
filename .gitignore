@@ -16,3 +16,6 @@
 
 # ignore nohup logfiles
 /nohup.out
+
+# upload directory
+/public/system
