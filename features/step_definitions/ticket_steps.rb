@@ -18,5 +18,8 @@ Then /^I should see "([^"]*)" within "([^"]*)"$/ do |arg1, arg2|
 end
 
 
+When /^I attach the file "([^"]*)" to "([^"]*)"$/ do |arg1, arg2|
+  attach_file(arg2, arg1)
+end
 
 
