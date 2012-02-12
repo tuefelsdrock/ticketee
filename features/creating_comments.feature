@@ -14,11 +14,11 @@ Feature: Creating comments
     | title | description |
     | Change a ticket's state | You should be able to create a comment |
     Given I am on the homepage
-    And I follow "Ticketee"
-Then show me the page
+    And I follow "Ticketee" within "#projects"
 
 
   Scenario: Creating a comment
+    #Then show me the page
     When I follow "Change a ticket's state"
     And I fill in "Text" with "Added a comment!"
     And I press "Create Comment"

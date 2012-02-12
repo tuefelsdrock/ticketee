@@ -40,3 +40,7 @@ Then /^show me the page$/ do
   save_and_open_page 
 end
 
+Given /^I follow "([^"]*)" within "([^"]*)"$/ do |arg1, arg2|
+  find(arg2).click_link(arg1)
+end
+
