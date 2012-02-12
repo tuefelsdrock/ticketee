@@ -16,6 +16,9 @@ class TicketsController < ApplicationController
     # @project object.
 
     @ticket = @project.tickets.build
+
+    3.times { @ticket.assets.build }
+
   end
 
   def create
