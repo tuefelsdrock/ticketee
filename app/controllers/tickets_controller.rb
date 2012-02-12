@@ -8,20 +8,17 @@ class TicketsController < ApplicationController
   before_filter :authorize_delete!, :only => :destroy
 
 
-
-
-
   def new
+
     # The build method simply instantiates a new record for the tickets association on the
     # @project object.
-
     @ticket = @project.tickets.build
 
     # pg 233:  3.times { @ticket.assets.build }
     @ticket.assets.build
 
-
   end
+
 
   def create
     @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
@@ -37,7 +34,7 @@ class TicketsController < ApplicationController
 
 
   def show
-
+    @comment = @ticket.comments.build
   end
 
 
