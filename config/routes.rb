@@ -31,4 +31,7 @@ Ticketee::Application.routes.draw do
     :as => :update_user_permissions
 
 
+  # pg 229
+  resources :files
+
 end
