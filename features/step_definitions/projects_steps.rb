@@ -36,3 +36,7 @@ When /^I check "([^"]*)"$/ do |arg1|
   check(arg1)
 end
 
+Then /^show me the page$/ do
+  save_and_open_page 
+end
+
