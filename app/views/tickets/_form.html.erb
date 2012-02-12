@@ -11,15 +11,20 @@
   <p>
 
 
-<% number = 0 %>
-<%= f.fields_for :assets do |asset| %>
-  <p>
-  <%= asset.label :asset, "File ##{number += 1}" %>
-  <%= asset.file_field :asset %>
-  </p>
+  <% number = 0 %>
+  <%= render :partial => "files/form", :locals => { :number => number } %>
+
+
+<div id='files'>
+<%= f.fields_for :assets, :child_index => number do |asset| %>
+<p>
+<%= asset.label :asset, "File ##{number += 1}" %>
+<%= asset.file_field :asset %>
+</p>
 <% end %>
-
-
+</div>
+  
+  <%= link_to "Add another file", new_file_path, :remote => true, :update => "files", :position => "after" %>
 
 
   </p>

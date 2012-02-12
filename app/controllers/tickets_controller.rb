@@ -17,7 +17,9 @@ class TicketsController < ApplicationController
 
     @ticket = @project.tickets.build
 
-    3.times { @ticket.assets.build }
+    # pg 233:  3.times { @ticket.assets.build }
+    @ticket.assets.build
+
 
   end
 
