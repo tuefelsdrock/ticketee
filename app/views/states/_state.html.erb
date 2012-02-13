@@ -1,0 +1,10 @@
+<%#
+If you had a state called “Drop bears strike without warning!” 
+and use parameterize on it, all the spaces and non-URL-valid
+characters would be stripped, leaving you with “drop-bears-strike-without-warning,”
+%>
+
+<div class='state state_<%= state.name.parameterize %>'>
+  <%= state %>
+</div>
+
