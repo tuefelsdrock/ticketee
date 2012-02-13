@@ -23,3 +23,7 @@ When /^I attach the file "([^"]*)" to "([^"]*)"$/ do |arg1, arg2|
 end
 
 
+When /^I select "([^"]*)" from "([^"]*)"$/ do |arg1, arg2|
+  select(arg2, :from => arg1)
+end
+
