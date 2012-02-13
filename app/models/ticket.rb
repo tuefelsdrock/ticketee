@@ -14,4 +14,5 @@ class Ticket < ActiveRecord::Base
 
   has_attached_file :asset
 
+  attr_accessor :asset_file_name # need this or destroy always fails.
 end

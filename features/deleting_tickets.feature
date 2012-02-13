@@ -20,18 +20,15 @@ Feature: Deleting tickets
     And I follow "Make it shiny!"
 
   Scenario: Deleting a ticket
-# 9.2.2 breaks this
-#    When I follow "Delete Ticket"
-#    Then I should see "Ticket has been deleted."
-#    And I should be on the project page for "TextMate 2"
+    When I follow "Delete Ticket"
+    Then I should see "Ticket has been deleted."
+    And I should be on the project page for "TextMate 2"
     
   Scenario: Delete ticket link is shown to a user with permission
     Given "user@ticketee.com" can view the "TextMate 2" project
-#    And "user@ticketee.com" can delete tickets in the "TextMate 2" project
-#     And I am signed in as "user@ticketee.com"
-#     When I follow "TextMate 2"
-#     And I follow "Make it shiny!"
-#     Then I should see "delete ticket"
+    And "user@ticketee.com" can delete tickets in the "TextMate 2" project
+Then show me the page
+    Then I should see "Delete Ticket"
 
   Scenario: Delete ticket link is hidden from a user without permission
     Given "user@ticketee.com" can view the "TextMate 2" project
