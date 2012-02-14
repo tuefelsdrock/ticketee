@@ -39,6 +39,8 @@ Feature: Creating comments
     And I press "Create Comment"
     Then I should see "Comment has been created."
     And I should see "Open" within "#ticket .state"
-    #Then show me the page
     And I should see "Open" within "#comments .state"
 
+  Scenario: A user without permission cannot change the state
+    When I follow "Change a ticket's state"
+    Then I should not see the "#comment_state_id" element
