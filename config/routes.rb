@@ -27,7 +27,15 @@ Ticketee::Application.routes.draw do
     resources :users do
       resources :permissions
     end
-    resources :states
+
+
+    # pg 275
+    resources :states do
+      member do
+        get :make_default
+      end
+    end
+
   end
 
   # pg 203
