@@ -5,7 +5,7 @@ module TicketsHelper
         if comment.previous_state && comment.state != comment.previous_state
           html="#{render comment.previous_state} &rarr; #{render comment.state}"
         else
-          html="&rarr;" + render(comment.state).html_safe
+          html="&rarr;" + render(comment.state)
         end
         html.html_safe
       end
