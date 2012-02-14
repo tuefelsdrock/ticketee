@@ -33,6 +33,7 @@ Feature: Creating comments
     And I should see "Text can't be blank"
 
   Scenario: Changing a ticket's state
+    Given "user@ticketee.com" can change states on the "Ticketee" project
     When I follow "Change a ticket's state"
     When I fill in "Text" with "This is a real issue"
     And I select "Open" from "State"
