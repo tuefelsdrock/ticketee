@@ -15,6 +15,8 @@ project_ticket_path(@project, @ticket), :method => :delete, :confirm => "Are you
 
 
 <%= simple_format(@ticket.description) %>
+<div id='tags'><%= render @ticket.tags %></div>
+
 
 <% if @ticket.assets.exists? %>
   <h3>Attached Files</h3>
