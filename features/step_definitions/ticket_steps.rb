@@ -23,4 +23,7 @@ When /^I attach the file "([^"]*)" to "([^"]*)"$/ do |arg1, arg2|
 end
 
 
+Then /^I should not see "([^"]*)" within "([^"]*)"$/ do |arg1, arg2|
+  find(arg2).should_not have_content(arg1)
+end
 
