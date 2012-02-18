@@ -18,6 +18,12 @@ Ticketee::Application.routes.draw do
 
   resources :tickets do
     resources :comments
+    # pg 301:
+    resources :tags do
+      member do
+        delete :remove
+      end
+    end
   end
 
   root :to => 'projects#index'
