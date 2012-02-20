@@ -28,6 +28,14 @@
     <%= render ticket.state if ticket.state %>
     #<%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
   </li>
+<%= form_tag search_project_tickets_path(@project),
+             :method => :get do %>
+  <%= label_tag "search" %>
+  <%= text_field_tag "search", params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
   <% end %>
+
 </u>
 
