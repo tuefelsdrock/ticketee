@@ -3,6 +3,7 @@ class Ticket < ActiveRecord::Base
   # pg 306
   searcher do
     label :tag, :from => :tags, :field => :name
+    label :state, :from => :state, :field => "name"
   end
 
   belongs_to :project
