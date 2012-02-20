@@ -13,7 +13,11 @@ Ticketee::Application.routes.draw do
   # use in controllers and views, this nested one gives you helpers.
   #
   resources :projects do
-    resources :tickets
+    resources :tickets do
+      collection do
+        get :search
+      end
+    end
   end
 
   resources :tickets do
