@@ -9,7 +9,7 @@ require 'bundler/capistrano'
 
 set :application, "ticketee"
 set :repository,  "git@github.com:tuefelsdrock/ticketee.git"
-set :branch, "ch11"
+set :branch, "ch14"
 
 set :scm, :git
 
@@ -17,7 +17,7 @@ role :web, "localhost"                          # Your HTTP server, Apache/etc
 role :app, "localhost"                          # This may be the same as your `Web` server
 role :db,  "localhost", :primary => true # This is where Rails migrations will run
 
-# I used the account target instead of ticketee.com for my install.
+# I used the account target instead of ticketeeapp.com 
 set :user, "target"
 set :deploy_to, "/home/target/apps/#{application}"
 
@@ -35,3 +35,11 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
+task :symlink_database_yml do
+  run "rm #{release_path}/config/database.yml"
+  run "ln -sfn #{shared_path}/config/database.yml
+       #{release_path}/config/database.yml"
+end
+after "bundle:install", "symlink_database_yml"
+
