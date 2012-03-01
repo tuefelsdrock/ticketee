@@ -35,6 +35,10 @@ gem 'jquery-rails'
 
 gem 'pry', :group => :development
 
+group :development do
+ gem 'capistrano'
+end
+
 group :test, :development do
   gem 'rspec-rails'
 end
