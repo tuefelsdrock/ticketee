@@ -30,7 +30,6 @@ Ticketee::Application.routes.draw do
     end
   end
 
-  root :to => 'projects#index'
 
   namespace :admin do
     root :to => "base#index"
@@ -56,5 +55,7 @@ Ticketee::Application.routes.draw do
 
   # pg 229
   resources :files
+
+  root :to => 'projects#index'
 
 end
