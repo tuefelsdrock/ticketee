@@ -19,10 +19,12 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: pg
+  adapter: postgresql
   database: target
-  pool: 5
-  timeout: 5000
+  min_messages: warning
+  username: target
+  port: 5432
+
 
 cucumber:
   <<: *test
